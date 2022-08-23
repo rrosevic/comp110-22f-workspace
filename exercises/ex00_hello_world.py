@@ -1,5 +1,5 @@
-"""My first program for COMP110"""
+"""My first program for COMP110."""
 
 __author__ = "730575822"
 
-print("Hello, world")
+print("Hello, world.")

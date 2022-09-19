@@ -43,7 +43,7 @@ def input_guess(guess_length: int) -> str:
 
 def main() -> None:
     """The entrypoint of the program and main game loop."""
-    secret: str = "codes"
+    secret: str = "frame"
     user_turns: int = 1
     user_win: bool = False
     while user_turns < 7 and user_win is False:

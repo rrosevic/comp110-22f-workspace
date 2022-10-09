@@ -31,13 +31,15 @@ def main() -> None:
         end_game()
     elif user_choice == 2:
         plant_quiz()
-        points += plant_score(points)
-        if plant_score == 2:
+        pscore: int = plant_score(points)
+        points += pscore
+        if pscore == 2:
             post_eval()
     else:
         fruit_quiz()
-        points += fruit_score(points)
-        if fruit_score == 2:
+        fscore_results: int = fruit_score(points)
+        points += fscore_results
+        if fscore_results == 2:
             post_eval()
 
     game_loop()
@@ -196,7 +198,7 @@ def your_fruit(results: int) -> str:
         print(avocado)
 
 
-def post_eval() -> None:
+def fpost_eval() -> None:
     """If player thinks results are inaccurate, gives them a new score."""
     from random import randint
     print("1: Yes \n2: No")

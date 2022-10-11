@@ -34,13 +34,13 @@ def main() -> None:
         pscore: int = plant_score(points)
         points += pscore
         if pscore == 2:
-            post_eval()
+            ppost_eval()
     else:
         fruit_quiz()
         fscore_results: int = fruit_score(points)
         points += fscore_results
         if fscore_results == 2:
-            post_eval()
+            fpost_eval()
 
     game_loop()
 
@@ -119,15 +119,26 @@ def plant_score(player_points: int) -> int:
 
 def your_plant(results: int) -> str:
     """Tells you your soul plant based on score from questionarre."""
-    herb: str = f"You are most like a healing herb plant! {HERB_EMOJI} \nYou are kind, compassionate, and caring. Use your strengths to share \nlove with the world (don't forget to take care of yourself, too {HEART_EMOJI}\n)"
-    evergreen: str = f"You are most like an evergreen tree! {EVERGREEN} \nYou stand tall and strong year-round, and always make sure your friends \ndo, too (don't forget about your personal agency {HEART_EMOJI}\n)"
-    clover: str = f"You are most like a four-leaf clover! {CLOVER_EMOJI} \nYou are very lucky, no matter what your outward circumstances are like. \nYou've createdyour own luck and it just keeps coming! Give yourself credit for that {HEART_EMOJI}\n"
+    herb: str = input(f"You are most like a healing herb plant! {HERB_EMOJI} \nYou are kind, compassionate, and caring. Use your strengths to share \nlove with the world (don't forget to take care of yourself, too {HEART_EMOJI}\n)")
+    evergreen: str = input(f"You are most like an evergreen tree! {EVERGREEN} \nYou stand tall and strong year-round, and always make sure your friends \ndo, too (don't forget about your personal agency {HEART_EMOJI}\n)")
+    clover: str = input(f"You are most like a four-leaf clover! {CLOVER_EMOJI} \nYou are very lucky, no matter what your outward circumstances are like. \nYou've createdyour own luck and it just keeps coming! Give yourself credit for that {HEART_EMOJI}\n")
     if results == 1:
         print(herb)
     if results == 2:
         print(evergreen)
     if results == 3:
         print(clover)
+
+
+def ppost_eval() -> None:
+    """If player thinks results are inaccurate, gives them a new score."""
+    from random import randint
+    print("1: Yes \n2: No")
+    new_results: int = int(input("Answer choice here: "))
+    if new_results == 1:
+        your_plant(randint(1, 3))
+    if new_results == 2:
+        print("Okay.")
 
 
 def fruit_quiz() -> None:
@@ -187,9 +198,9 @@ def fruit_score(player_points: int) -> int:
 def your_fruit(results: int) -> str:
     """Tells you your soul fruit based on score from questionarre."""
     print(f"\nYour final score is: {points}")
-    apple: str = f"You are most like an apple! {APPLE_EMOJI} \nApples are known to have healing properties in the same way you heal others. \nUse your strengths to share love with the world (don't forget to take care of yourself, too {HEART_EMOJI}\n)"
-    pineapple: str = f"You are most like a pineapple! {PINEAPPLE} \nYou stand tall and strong in any environment. You may seem intimidating, \nbut you are just protective of your friends and family and are very sweet on the inside{HEART_EMOJI}\n"
-    avocado: str = f"You are most like an avocado! {AVOCADO_EMOJI} \nAvocados are known to carry good luck, just like you! No matter what your \noutward circumstances are like, your luck just keeps coming. Give yourself credit for that{HEART_EMOJI}\n"
+    apple: str = input(f"You are most like an apple! {APPLE_EMOJI} \nApples are known to have healing properties in the same way you heal others. \nUse your strengths to share love with the world (don't forget to take care of yourself, too {HEART_EMOJI}\n)")
+    pineapple: str = input(f"You are most like a pineapple! {PINEAPPLE} \nYou stand tall and strong in any environment. You may seem intimidating, \nbut you are just protective of your friends and family and are very sweet on the inside{HEART_EMOJI}\n")
+    avocado: str = input(f"You are most like an avocado! {AVOCADO_EMOJI} \nAvocados are known to carry good luck, just like you! No matter what your \noutward circumstances are like, your luck just keeps coming. Give yourself credit for that{HEART_EMOJI}\n")
     if results == 1:
         print(apple)
     if results == 2:
